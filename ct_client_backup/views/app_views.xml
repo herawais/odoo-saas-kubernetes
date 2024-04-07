@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <!-- Inherit Form View to Modify it -->
+        <record id="saas_app_form_backup_inherit" model="ir.ui.view">
+            <field name="name">SaaS App inherit for Backups</field>
+            <field name="model">kk_odoo_saas.app</field>
+            <field name="inherit_id" ref="kk_odoo_saas.kk_odoo_saas_app_view_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//page[@name='k8s_logs']" position="after">
+                    <page name="backups" string="Backups">
+                        <group>
+                            <group>
+                                <field name="backups_enabled" widget="boolean_toggle"/>
+                                <field name="backup_db_name"
+                                       attrs="{'required': [('backups_enabled', '=', True)], 'invisible': [('backups_enabled', '!=', True)]}"/>
+                            </group>
+                            <group>
+                                <field name="backup_master_pass"
+                                       attrs="{'required': [('backups_enabled', '=', True)], 'invisible': [('backups_enabled', '!=', True)]}"
+                                       password="1"/>
+                                <button name="action_create_backup"
+                                        type="object"
+                                        string="Take Backup"
+                                        attrs="{'invisible': ['|', ('status','in',('d','del')),('backups_enabled', '=', False)]}"
+                                />
+                            </group>
+                        </group>
+                        <group>
+                            <field name="backups" nolabel="1" readonly="1"/>
+                        </group>
+                    </page>
+                </xpath>
+            </field>
+        </record>
+    </data>
+</odoo>

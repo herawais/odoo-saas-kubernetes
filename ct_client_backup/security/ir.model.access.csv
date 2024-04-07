@@ -1,0 +1,3 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_saas_app_backups,access_saas_app_backups,model_kk_odoo_saas_app_backup,kk_odoo_saas.group_saas_manager,1,1,1,1
+access_saas_app_backup_restore_wizard,SaaS Manager Backup Restore Permissions,model_saas_client_backup_restore_wizard,kk_odoo_saas.group_saas_manager,1,1,1,1

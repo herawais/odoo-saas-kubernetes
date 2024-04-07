@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="kk_odoo_saas_app_backup_form_view" model="ir.ui.view">
+            <field name="name">kk_odoo_saas.kk_odoo_saas.app.backup.form</field>
+            <field name="model">kk_odoo_saas.app.backup</field>
+            <field name="arch" type="xml">
+                <form>
+                    <header>
+                        <button name="download_db_file"
+                                type="object"
+                                string="Download File"
+                        />
+                    <button name="action_restore_backup_to_instance"
+                            type="object"
+                            string="Restore to Instance"
+                    />
+
+                    </header>
+
+                    <sheet>
+                        <div class="oe_title">
+                            <label for="name"/>
+                            <h1>
+                                <field name="name" placeholder="Title" readonly="1"/>
+                            </h1>
+                        </div>
+                        <group>
+                            <group>
+                                <field name="app"/>
+                                <field name="file_name"/>
+                                <field name="file_path"/>
+                            </group>
+                            <group>
+                                <field name="url"/>
+                                <field name="backup_date_time"/>
+                                <field name="status"/>
+                                <field name="message"/>
+                            </group>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="kk_odoo_saas_app_backup_tree_view" model="ir.ui.view">
+            <field name="name">kk_odoo_saas.kk_odoo_saas.app.backup.tree</field>
+            <field name="model">kk_odoo_saas.app.backup</field>
+            <field name="arch" type="xml">
+                <tree string="App Backup" decoration-success="status=='success'" decoration-danger="status!='success'">
+                    <field name="name" readonly="1"/>
+                    <field name="file_name"/>
+                    <field name="backup_date_time"/>
+                    <field name="status"/>
+                    <field name="file_size"/>
+                    <button name="download_db_file"
+                            type="object" icon="fa-cloud-download"
+                            string="Download Zip File"
+                            class="btn-secondary"
+                    />
+                    <button name="ct_client_backup.action_saas_client_backup_restore_wizard"
+                            string="Restore to Instance" type="action" icon="fa-cloud-upload"
+                            class="btn-secondary"
+                            context="{'default_backup_id':id}"
+                            attrs="{'invisible':[('status','=', 'failed')]}" />
+
+                    <button name="calc_backup_size" type="object"
+                            icon="fa-refresh" class="btn-secondary"
+                            string="Calculate file Size"/>
+                </tree>
+            </field>
+        </record>
+
+    </data>
+</odoo>

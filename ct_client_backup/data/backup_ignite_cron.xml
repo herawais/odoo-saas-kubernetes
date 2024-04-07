@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<odoo>
+    <data>
+        <record id="backup_process_ignite_crone" model="ir.cron">
+            <field name="name">SaaS: Backup Process Ignite Cron</field>
+            <field name="model_id" ref="model_kk_odoo_saas_app"/>
+            <field name="state">code</field>
+            <field name="code">model.ignite_backup_server_cron()</field>
+            <field name="interval_number">1</field>
+            <field name="interval_type">days</field>
+            <field name="numbercall">-1</field>
+        </record>
+    </data>
+</odoo>

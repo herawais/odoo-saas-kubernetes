@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="saas_client_backup_restore_view_form" model="ir.ui.view">
+            <field name="name">saas_client_backup_restore_view_form</field>
+            <field name="model">saas.client.backup.restore.wizard</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                        <group>
+                            <group>
+                                <field name="name"/>
+                                <field name="backup_id" required="1"/>
+                            </group>
+                            <group>
+                                <field name="restore_to" string="Restore to SaaS Instance" required="1"/>
+                            </group>
+                        </group>
+                    </sheet>
+                    <footer>
+                        <button
+                                name="action_call_restore_function"
+                                string="Start Restoring Process"
+                                type="object"
+                                class="oe_highlight"
+                        />
+                        <button string="Cancel" class="oe_link" special="cancel"/>
+                    </footer>
+
+                </form>
+            </field>
+        </record>
+
+        <record id="action_saas_client_backup_restore_wizard" model="ir.actions.act_window">
+            <field name="name">Restore the Backup to SaaS App</field>
+            <field name="res_model">saas.client.backup.restore.wizard</field>
+            <field name="view_mode">form</field>
+            <field name="view_id" ref="saas_client_backup_restore_view_form"/>
+            <field name="target">new</field>
+            <field name="binding_model_id" ref="ct_client_backup.model_kk_odoo_saas_app_backup"/>
+        </record>
+
+
+    </data>
+</odoo>
