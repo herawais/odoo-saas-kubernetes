@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <!-- Email template for new users app -->
+        <record id="app_invitation_email" model="mail.template">
+            <field name="name">KK SaaS: App Invitation</field>
+            <field name="model_id" ref="kk_odoo_saas.model_kk_odoo_saas_app"/>
+            <field name="subject">Here are the Credentials of your Instance</field>
+            <field name="email_from">"${object.admin_user.company_id.name | safe}" &lt;${(object.admin_user.company_id.email ) | safe}&gt;</field>
+            <field name="email_to">${object.admin_user.email_formatted | safe}</field>
+            <field name="body_html" type="html">
+                <table border="0" cellpadding="0" cellspacing="0"
+                       style="padding-top: 16px; background-color: #F1F1F1; font-family:Verdana, Arial,sans-serif; color: #454748; width: 100%; border-collapse:separate;">
+                    <tr>
+                        <td align="center">
+                            <table border="0" cellpadding="0" cellspacing="0" width="590"
+                                   style="padding: 16px; background-color: white; color: #454748; border-collapse:separate;">
+                                <tbody>
+                                    <!-- HEADER -->
+                                    <tr>
+                                        <td align="center" style="min-width: 590px;">
+                                            <table border="0" cellpadding="0" cellspacing="0" width="590"
+                                                   style="min-width: 590px; background-color: white; padding: 0px 8px 0px 8px; border-collapse:separate;">
+                                                <tr>
+                                                    <td valign="middle">
+                                                        <span style="font-size: 10px;">Welcome to SaaS</span>
+                                                        <br/>
+                                                        <span style="font-size: 20px; font-weight: bold;">
+                                                            ${object.admin_user.name}
+                                                        </span>
+                                                    </td>
+                                                    <td valign="middle" align="right">
+                                                        <img src="/logo.png?company=${object.admin_user.company_id.id}"
+                                                             style="padding: 0px; margin: 0px; height: auto; width: 80px;"
+                                                             alt="${object.admin_user.company_id.name}"/>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td colspan="2" style="text-align:center;">
+                                                        <hr width="100%"
+                                                            style="background-color:rgb(204,204,204);border:medium none;clear:both;display:block;font-size:0px;min-height:1px;line-height:0; margin: 16px 0px 16px 0px;"/>
+                                                    </td>
+                                                </tr>
+                                            </table>
+                                        </td>
+                                    </tr>
+                                    <!-- CONTENT -->
+                                    <tr>
+                                        <td align="center" style="min-width: 590px;">
+                                            <table border="0" cellpadding="0" cellspacing="0" width="590"
+                                                   style="min-width: 590px; background-color: white; padding: 0px 8px 0px 8px; border-collapse:separate;">
+                                                <tr>
+                                                    <td valign="top" style="font-size: 13px;">
+                                                        <div>
+                                                            Dear ${object.admin_user.name},
+                                                            <br/>
+                                                            <br/>
+                                                            You have been invited by ${object.create_uid.name} of
+                                                            ${object.admin_user.company_id.name} to connect on SaaS App.
+                                                            % set website_url = object.get_url()
+                                                            <br/>
+                                                            Your SaaS domain is:
+                                                            <b>
+                                                                <a href='${website_url}'>${website_url}</a>
+                                                            </b>
+                                                            <br/>
+                                                            Your sign in email is:
+                                                            <b>
+                                                                <a href="${website_url}/web/login?login=${object.admin_user.email}"
+                                                                   target="_blank">${object.admin_user.email}
+                                                                </a>
+                                                            </b>
+                                                            <br/>
+                                                            Your Password is:
+                                                            <b>
+                                                                <p>${object.login_pwd}</p>
+                                                            </b>
+                                                            <br/>
+
+                                                            <br/>
+                                                            
+                                                            <br/>
+                                                            <br/>
+                                                            Enjoy SaaS!
+                                                            <br/>
+                                                            --<br/>The ${object.admin_user.company_id.name} Team
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td style="text-align:center;">
+                                                        <hr width="100%"
+                                                            style="background-color:rgb(204,204,204);border:medium none;clear:both;display:block;font-size:0px;min-height:1px;line-height:0; margin: 16px 0px 16px 0px;"/>
+                                                    </td>
+                                                </tr>
+                                            </table>
+                                        </td>
+                                    </tr>
+                                    <!-- FOOTER -->
+                                    <tr>
+                                        <td align="center" style="min-width: 590px;">
+                                            <table border="0" cellpadding="0" cellspacing="0" width="590"
+                                                   style="min-width: 590px; background-color: white; font-size: 11px; padding: 0px 8px 0px 8px; border-collapse:separate;">
+                                                <tr>
+                                                    <td valign="middle" align="left">
+                                                        ${object.admin_user.company_id.name}
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td valign="middle" align="left" style="opacity: 0.7;">
+                                                        ${object.admin_user.company_id.phone}
+                                                        % if object.admin_user.company_id.email
+                                                        |
+                                                        <a href="'mailto:%s' % ${object.admin_user.company_id.email}"
+                                                           style="text-decoration:none; color: #454748;">
+                                                            ${object.admin_user.company_id.email}
+                                                        </a>
+                                                        % endif
+                                                        % if object.admin_user.company_id.website
+                                                        |
+                                                        <a href="'%s' % ${object.admin_user.company_id.website}"
+                                                           style="text-decoration:none; color: #454748;">
+                                                            ${object.admin_user.company_id.website}
+                                                        </a>
+                                                        % endif
+                                                    </td>
+                                                </tr>
+                                            </table>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </td>
+                    </tr>
+                </table>
+            </field>
+            <field name="lang">${object.admin_user.lang}</field>
+            <field name="auto_delete" eval="True"/>
+        </record>
+
+    </data>
+</odoo>

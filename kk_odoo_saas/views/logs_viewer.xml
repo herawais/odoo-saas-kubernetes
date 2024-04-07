@@ -1,0 +1,49 @@
+<odoo>
+    <!-- Header -->
+    <template id="saas_app_log_viewer">
+        <html>
+            <head>
+                <meta charset="utf-8"/>
+                <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+                <title>Logs Viewer</title>
+
+                <link rel="stylesheet" href="/kk_odoo_saas/static/src/css/bootstrap.css"/>
+                <link rel="stylesheet" href="/kk_odoo_saas/static/src/css/font-awesome.css"/>
+                <link rel="stylesheet" href="/kk_odoo_saas/static/src/css/logs-viewer.css"/>
+
+            </head>
+            <body>
+                <div id="wrapper">
+                    <div class="container-fluid o-logs-container">
+                        <div class="row">
+                            <div class="o-logs col-md-12">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="header">
+                        <div class="status-bar">
+                            <form class="form-inline d-flex justify-content-end" _lpchecked="1">
+                                <a class="btn button-pause">
+                                    <i class="fa fa-pause" aria-hidden="true" style="display: none;"></i>
+                                    <i class="fa fa-play" aria-hidden="true" style=""></i>
+                                    <div class="loader"></div>
+                                </a>
+                                <div class="form-group d-flex">
+                                    <label for="filter">Filter:</label>
+                                    <input type="text" class="form-control ml-2" id="filter" placeholder="ERROR"/>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+
+
+                <script type="text/javascript" src="/kk_odoo_saas/static/src/js/jquery.js"></script>
+                <script type="text/javascript" src="/kk_odoo_saas/static/src/js/logs-viewer.js"></script>
+            </body>
+
+        </html>
+
+    </template>
+
+</odoo>

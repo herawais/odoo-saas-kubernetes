@@ -1,0 +1,303 @@
+<odoo>
+    <data noupdate="1">
+        <!-- Sequences for kk_odoo_saas.app -->
+        <record id="kk_odoo_saas_app_sequence" model="ir.sequence">
+            <field name="name">SaaS App Sequence</field>
+            <field name="code">kk_odoo_saas.app</field>
+            <field name="prefix">saas-app</field>
+            <field name="padding">3</field>
+            <field name="company_id" eval="False"/>
+        </record>
+
+    </data>
+    <data>
+        <record id="kk_odoo_saas_app_view_form" model="ir.ui.view">
+            <field name="name">kk_odoo_saas_app_view_form</field>
+            <field name="model">kk_odoo_saas.app</field>
+            <field name="arch" type="xml">
+                <form>
+                    <header>
+                        <button name="deploy_app" string="Deploy App" type="object"
+                                attrs="{'invisible':[('status','not in',['d', 'del'])]}" class="btn-primary"/>
+                        <button name="kk_odoo_saas.action_saas_app_delete_wizard"
+                                confirm="Are you sure to DELETE this Deployment? it will DELETE all Data of this App ."
+                                string="Delete Deployment" type="action"  icon="fa-trash"
+                                attrs="{'invisible':[('status','not in',['l', 'm'])]}" class="btn-primary"/>
+<!--                        <button name="update_app" string="Update Deployment" type="object"-->
+<!--                                attrs="{'invisible':[('status','not in',['m'])]}" class="btn-primary"/>-->
+                        <button name="deploy_apps_from_git" string="Update Git Code" type="object"
+                                attrs="{'invisible':[('is_extra_addon','=',False)]}" class="btn-secondary"/>
+                        <button name="del_git_dir" string="Delete Git Code" type="object"
+                                attrs="{'invisible':[('is_extra_addon','=',False)]}" class="btn-secondary"/>
+                        <button name="restart_odoo_service" string="Restart Odoo Service" type="object"
+                                class="btn-secondary" icon="fa-refresh"/>
+                        <field name="status" widget="statusbar"/>
+                    </header>
+                    <header>
+                        <button name="action_create_subscription"
+                                type="object"
+                                string="Create Subscription"
+                                attrs="{'invisible': [('subscription_id','!=',False)]}"
+                        />
+                    </header>
+
+                    <sheet>
+                        <div class="oe_button_box" style="justify-content: space-between; display: flex;">
+                            <div>
+
+                                <button name="action_connect_instance"
+                                        type="object" icon="fa-rocket"
+                                        class="oe_stat_button pl-3"
+                                        string="Connect"
+                                        attrs="{'invisible': [('status','in',['d','del'])]}"
+                                />
+                                <button name="kk_odoo_saas.action_saas_app_update_dkr_img_wizard"
+                                        string="Update Docker Image" type="action" icon="fa-cloud-upload"
+                                        attrs="{'invisible':[('status','not in',['l', 'm'])]}" class="oe_stat_button"/>
+                            </div>
+
+
+                            <button name="action_show_subscription"
+                                    type="object" icon="fa-file"
+                                    string="Show Subscription"
+                                    attrs="{'invisible': [('subscription_id','=',False)]}"
+                                    class="oe_stat_button"
+                            />
+                        </div>
+
+                        <group>
+                            <group string="App Info">
+                                <field name="app_name" readonly="1" force_save="1"/>
+                                <field name="name" required="1"/>
+                            </group>
+                            <group string="K8s Cluster Configuration">
+                                <field name="configuration" options="{'no_create': True, 'no_edit': True}" required="1" attrs="{'readonly': [('status', 'in', ['l','m'])]}"/>
+                            </group>
+                            <group string="Node Configuration">
+                                <field name="is_dedicated_node" required="0" attrs="{'readonly': [('status', 'in', ['l','m'])]}" string="Any Specific Node"/>
+                                <field name="node_id"
+                                       attrs="{'readonly': [('status', 'in', ['l','m'])], 'required': [('is_dedicated_node', '=', True)], 'invisible': [('is_dedicated_node', '=', False)]}"
+                                       options="{'no_create': True}"
+                                />
+<!--                                <field name="node_key"-->
+<!--                                       attrs="{'readonly': [('status', 'in', ['l','m'])], 'invisible': [('is_dedicated_node', '=', False)]}"-->
+<!--                                />-->
+<!--                                <field name="node_value"-->
+<!--                                       attrs="{'readonly': [('status', 'in', ['l','m'])], 'invisible': [('is_dedicated_node', '=', False)]}"-->
+<!--                                />-->
+                                <div>
+                                    <p>
+                                        <button name="refresh_node_list"
+                                                attrs="{'invisible': [('is_dedicated_node', '=', False)]}"
+                                                type="object" string="Click to Refresh Nodes List."
+                                                class="oe_link" />
+                                    </p>
+                                </div>
+                            </group>
+                            <group string="Domain Configuration">
+
+                                <div>
+                                    <field name="sub_domain_name" class="oe_inline"/>
+                                    <field name="domain_name" class="oe_inline"/>
+                                </div>
+                            </group>
+                            <group string="Database Server">
+                                <field name="db_server_id" options="{'no_create': True, 'no_edit': True}" domain="[('status', '=', 'connected')]" required="1"/>
+                                <field name="client_db_name" required="1"/>
+                            </group>
+                            <group string="Extra Addons from Git">
+                                <field name="is_extra_addon" widget="boolean_toggle"/>
+                                <field name="extra_addons"
+                                       attrs="{'invisible': [('is_extra_addon', '=', False)], 'required':[('is_extra_addon', '=', True)]}"/>
+                                <field name="is_private_repo" attrs="{'invisible': [('is_extra_addon', '=', False)]}"/>
+                                <field name="git_token" password="True"
+                                       attrs="{'invisible': ['|', ('is_extra_addon', '=', False), ('is_private_repo', '=', False)], 'required':[('is_private_repo', '=', True)]}"/>
+                            </group>
+                            <group string="App Version (Docker Image)">
+                                <field name="docker_image" required="1" attrs="{'readonly': [('status', 'in', ['l','m'])]}"/>
+                            </group>
+                            <group string="Demo Data">
+                                <field name="demo_data" widget="boolean_toggle"  attrs="{'readonly': [('status', 'in', ['l','m'])]}"/>
+                            </group>
+
+
+                            <group string="Odoo Modules">
+                                <field name="module_ids" widget="many2many_tags" attrs="{'readonly': [('status', 'in', ['l','m'])]}"/>
+                            </group>
+                            <group string="App Credentials">
+                                <field name="login_email" string="Email / Username"/>
+                                <label for="login_pwd" string="Password"/>
+<!--                                <div>-->
+                                    <field name="login_pwd" password="True"   widget="CopyClipboardChar"/>
+<!--                                    <button class="oe_inline btn btn-primary" type="object" name="reset_app_password" string="Reset Credentials"/>-->
+<!--                                </div>-->
+
+                                <field name="master_login_email"/>
+                                <field name="master_login_pwd" password="True"  widget="CopyClipboardChar"/>
+
+                            </group>
+
+
+                        </group>
+                        <notebook>
+                            <page string="Client Details">
+                                <group>
+                                    <group>
+                                        <field name="client" force_save="1"/>
+                                    </group>
+                                    <group>
+                                        <field name="country_id" options="{'no_create': True}" attrs="{'readonly': [('status', 'in', ['l','m'])]}"/>
+                                        <field name="admin_user" context="{'form_view_ref': 'base.view_users_form',}" required="1"  attrs="{'readonly': [('status', 'in', ['l','m'])]}"/>
+                                    </group>
+                                </group>
+
+                            </page>
+                            <page string="Subscription Details">
+                                <group>
+                                    <group>
+                                        <field name="subscription_id"/>
+                                    </group>
+                                    <group>
+                                    </group>
+                                </group>
+
+                            </page>
+                            <page name="k8s_logs" string="K8s Logs">
+                                <field name="k8s_logs"/>
+                            </page>
+                            <page name="instance_logs" string="Instance Logs">
+                                <button name="get_pod_logs" type="object" string="Download Logs File"/>
+                                <button name="action_log_viewer" type="object" string="See Realtime Logs"/>
+                            </page>
+<!--                            <page name="redeploy_app" string="Update Docker Image">-->
+<!--                            </page>-->
+                            <page name="custom_domains" string="Custom Domains">
+                                <field name="custom_domain_ids"/>
+                            </page>
+                        </notebook>
+
+                    </sheet>
+                    <div class="oe_chatter">
+                        <field name="message_follower_ids" groups="base.group_user"/>
+                        <field name="activity_ids"/>
+                        <field name="message_ids"/>
+                    </div>
+                </form>
+            </field>
+        </record>
+
+        <record id="kk_odoo_saas_app_view_kanban" model="ir.ui.view">
+            <field name="name">kk_odoo_saas_app_view_kanban</field>
+            <field name="model">kk_odoo_saas.app</field>
+            <field name="arch" type="xml">
+                <kanban records_draggable="0">
+                    <field name="app_name"/>
+                    <field name="name"/>
+                    <field name="status"/>
+                    <field name="domain_name"/>
+                    <field name="sub_domain_name"/>
+                    <templates>
+                        <t t-name="kanban-box">
+                            <div class="oe_kanban_global_click container">
+                                <field name="name"/>
+                                <br/>
+                                <field name="app_name"/>
+                                <t t-if="record.status.raw_value in ['l', 'm']">
+                                    <p>
+                                        <field name="sub_domain_name"/>
+                                        <field name="domain_name"/>
+                                    </p>
+                                </t>
+                                <div>Custom Domains: </div><field name="custom_domain_ids" widget="many2many_tags"/>
+                            </div>
+                        </t>
+                    </templates>
+                </kanban>
+            </field>
+        </record>
+
+        <record id="kk_odoo_saas_app_view_search" model="ir.ui.view">
+            <field name="name">kk_odoo_saas.app.search</field>
+            <field name="model">kk_odoo_saas.app</field>
+            <field name="arch" type="xml">
+                <search string="Apps">
+                    <field name="name" string="Apps"
+                           filter_domain="[('name','ilike',self)]"/>
+                    <field name="app_name" string="Unique Id"/>
+                    <field name="sub_domain_name" string="Domain Name"/>
+                    <field name="status" string="State"/>
+                    <group expand="0" string="Group By">
+                        <filter name="group_status" string="State" domain="[]" context="{'group_by':'status'}"/>
+                        <filter name="group_configuration" string="Configuration" domain="[]"
+                                context="{'group_by':'configuration'}"/>
+                    </group>
+                </search>
+            </field>
+        </record>
+
+        <record id="kk_odoo_saas_app_view_tree" model="ir.ui.view">
+            <field name="name">kk_odoo_saas_app_view_tree</field>
+            <field name="model">kk_odoo_saas.app</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="app_name"/>
+                    <field name="name"/>
+                    <field name="configuration"/>
+                    <field name="client"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="kk_odoo_saas_app_action" model="ir.actions.act_window">
+            <field name="name">Apps</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">kk_odoo_saas.app</field>
+            <field name="view_mode">kanban,list,form</field>
+            <field name="context">{'search_default_group_status': True}</field>
+
+        </record>
+
+
+        <!-- Top menu item -->
+        <menuitem name="SaaS" id="menu_root"
+                  web_icon="kk_odoo_saas,static/description/icon.png"
+                  sequence="-40"
+        />
+
+        <!-- actions -->
+        <menuitem name="Apps" id="kk_odoo_saas_apps" parent="menu_root"
+                  action="kk_odoo_saas.kk_odoo_saas_app_action"/>
+
+        <menuitem id="menu_kk_odoo_saas_smile_log" parent="menu_root" name="Logs" action="smile_log.act_smile_log"/>
+
+        <menuitem id="menu_kk_odoo_saas_customer" parent="menu_root" name="Customers / Orders"/>
+        <menuitem id="menu_kk_odoo_saas_customer_customers" parent="menu_kk_odoo_saas_customer" name="Customers"
+                  action="base.action_partner_customer_form" sequence="10"/>
+
+        <menuitem id="menu_kk_odoo_saas_customer_subscriptions" parent="menu_kk_odoo_saas_customer" name="Subscriptions"
+                  action="sale_subscription.sale_subscription_action" sequence="20"/>
+
+        <record id="action_orders_ecommerce" model="ir.actions.act_window">
+            <field name="name">Orders</field>
+            <field name="res_model">sale.order</field>
+            <field name="view_mode">tree,form,kanban,activity</field>
+            <field name="domain">[]</field>
+            <field name="context">{}</field>
+            <field name="search_view_id" ref="website_sale.view_sales_order_filter_ecommerce"/>
+            <field name="help" type="html">
+                <p class="o_view_nocontent_empty_folder">
+                    There is no confirmed order from the website
+                </p>
+            </field>
+        </record>
+
+
+        <menuitem id="menu_kk_odoo_saas_customer_orders" parent="menu_kk_odoo_saas_customer" name="Orders"
+                  action="action_orders_ecommerce" sequence="30"/>
+
+        <menuitem id="menu_kk_odoo_saas_users" parent="menu_kk_odoo_saas_customer" name="Portal Users"
+                  action="base.action_res_users" sequence="30"/>
+
+
+    </data>
+</odoo>

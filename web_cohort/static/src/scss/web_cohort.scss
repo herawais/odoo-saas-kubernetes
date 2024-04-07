@@ -1,0 +1,67 @@
+// ------------------------------------------------------------------
+// Cohort View
+// ------------------------------------------------------------------
+$o-cohort-heading-bg-color: darken(theme-color('light'), 4%);
+$o-cohort-border-color: darken($o-cohort-heading-bg-color, 6%);
+$o-cohort-hover-color: lighten($o-cohort-heading-bg-color, 2%);
+
+.o_cohort_view {
+    .table {
+        border-bottom: 1px solid $o-cohort-border-color;
+        thead {
+            background-color: $o-cohort-heading-bg-color;
+            > tr > th {
+                border-bottom: 1px solid $o-cohort-border-color;
+            }
+        }
+        tbody {
+            > tr {
+                &.o_cohort_row_clickable {
+                    &:hover {
+                        .o_cohort_value {
+                            cursor: pointer;
+                        }
+                        background-color: $o-cohort-hover-color;
+                        @include media-breakpoint-up(lg) {
+                            td:first-child {
+                                position: relative;
+                                &:before {
+                                    content: '';
+                                    @include o-position-absolute($top: 0px, $left: 0px);
+                                    height: 100%;
+                                    width: 3px;
+                                    background-color: $o-brand-primary;
+                                }
+                            }
+                        }
+                    }
+                }
+                & > td {
+                    padding: 0px;
+                    > div {
+                        padding: 3px;
+                        &.o_cohort_highlight {
+                            margin: 2px;
+                            border-radius: 2px;
+                        }
+                    }
+                }
+            }
+        }
+        tfoot {
+            background-color: $o-cohort-heading-bg-color;
+            font-weight: 500;
+        }
+        tr > th, tr > td {
+            border-left: 1px solid $o-cohort-border-color;
+            text-align: center;
+            vertical-align: middle;
+        }
+    }
+    .o_cohort_no_data {
+        padding: 15px;
+        font-size: 18px;
+        border: 1px solid $o-cohort-border-color;
+        background-color: $o-cohort-heading-bg-color;
+    }
+}

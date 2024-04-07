@@ -1,0 +1,177 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* web_cohort
+# 
+# Translators:
+# Joe Hansen <joedalton2@yahoo.dk>, 2020
+# Martin Trigaux, 2020
+# Hans Henrik Gabelgaard <hhg@gabelgaard.org>, 2020
+# Morten Schou <ms@msteknik.dk>, 2020
+# Jesper Carstensen <jc@danodoo.dk>, 2020
+# Pernille Kristensen <pernillekristensen1994@gmail.com>, 2020
+# Sanne Kristensen <sanne@vkdata.dk>, 2020
+# lhmflexerp <lhm@flexerp.dk>, 2020
+# Mads Søndergaard, 2020
+# 
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server saas~13.5+e\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-09-01 07:40+0000\n"
+"PO-Revision-Date: 2020-09-07 08:25+0000\n"
+"Last-Translator: Mads Søndergaard, 2020\n"
+"Language-Team: Danish (https://www.transifex.com/odoo/teams/41243/da/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Language: da\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#. module: web_cohort
+#: code:addons/web_cohort/controllers/main.py:0
+#, python-format
+msgid "%s - By %s"
+msgstr "%s - Af %s"
+
+#. module: web_cohort
+#. openerp-web
+#: code:addons/web_cohort/static/src/xml/web_cohort.xml:0
+#, python-format
+msgid "- By"
+msgstr "- Af"
+
+#. module: web_cohort
+#: model:ir.model,name:web_cohort.model_ir_actions_act_window_view
+msgid "Action Window View"
+msgstr "Visning af handlingsvindue"
+
+#. module: web_cohort
+#. openerp-web
+#: code:addons/web_cohort/controllers/main.py:0
+#: code:addons/web_cohort/static/src/xml/web_cohort.xml:0
+#, python-format
+msgid "Average"
+msgstr "Gennemsnit"
+
+#. module: web_cohort
+#: model:ir.model,name:web_cohort.model_base
+msgid "Base"
+msgstr "Basis"
+
+#. module: web_cohort
+#. openerp-web
+#: code:addons/web_cohort/static/src/js/cohort_view.js:0
+#: model:ir.model.fields.selection,name:web_cohort.selection__ir_actions_act_window_view__view_mode__cohort
+#: model:ir.model.fields.selection,name:web_cohort.selection__ir_ui_view__type__cohort
+#, python-format
+msgid "Cohort"
+msgstr "Gruppe"
+
+#. module: web_cohort
+#. openerp-web
+#: code:addons/web_cohort/static/src/js/cohort_view.js:0
+#, python-format
+msgid "Cohort view has not defined \"date_start\" attribute."
+msgstr "Kohorte visning har ikke en defineret \"date_start\" egenskab."
+
+#. module: web_cohort
+#. openerp-web
+#: code:addons/web_cohort/static/src/js/cohort_view.js:0
+#, python-format
+msgid "Cohort view has not defined \"date_stop\" attribute."
+msgstr "Kohorte visning har ikke en defineret \"date_stop\" egenskab."
+
+#. module: web_cohort
+#. openerp-web
+#: code:addons/web_cohort/static/src/js/cohort_controller.js:0
+#: code:addons/web_cohort/static/src/js/cohort_view.js:0
+#: code:addons/web_cohort/static/src/xml/web_cohort.xml:0
+#, python-format
+msgid "Count"
+msgstr "Antal"
+
+#. module: web_cohort
+#. openerp-web
+#: code:addons/web_cohort/static/src/js/cohort_view.js:0
+#, python-format
+msgid "Day"
+msgstr "Dag"
+
+#. module: web_cohort
+#: model:ir.model.fields,field_description:web_cohort.field_ir_actions_act_window_view__display_name
+#: model:ir.model.fields,field_description:web_cohort.field_ir_ui_view__display_name
+msgid "Display Name"
+msgstr "Vis navn"
+
+#. module: web_cohort
+#. openerp-web
+#: code:addons/web_cohort/static/src/xml/web_cohort.xml:0
+#, python-format
+msgid "Download in Excel file"
+msgstr "Hent i Excel fil"
+
+#. module: web_cohort
+#: model:ir.model.fields,field_description:web_cohort.field_ir_actions_act_window_view__id
+#: model:ir.model.fields,field_description:web_cohort.field_ir_ui_view__id
+msgid "ID"
+msgstr "ID"
+
+#. module: web_cohort
+#: model:ir.model.fields,field_description:web_cohort.field_ir_actions_act_window_view____last_update
+#: model:ir.model.fields,field_description:web_cohort.field_ir_ui_view____last_update
+msgid "Last Modified on"
+msgstr "Sidst ændret den"
+
+#. module: web_cohort
+#. openerp-web
+#: code:addons/web_cohort/static/src/xml/web_cohort.xml:0
+#, python-format
+msgid "Measures"
+msgstr "Mål"
+
+#. module: web_cohort
+#. openerp-web
+#: code:addons/web_cohort/static/src/js/cohort_view.js:0
+#, python-format
+msgid "Month"
+msgstr "Måned"
+
+#. module: web_cohort
+#. openerp-web
+#: code:addons/web_cohort/static/src/xml/web_cohort.xml:0
+#: code:addons/web_cohort/static/src/xml/web_cohort.xml:0
+#, python-format
+msgid "No data available."
+msgstr "Ingen tilgængelige data."
+
+#. module: web_cohort
+#. openerp-web
+#: code:addons/web_cohort/static/src/js/cohort_view.js:0
+#, python-format
+msgid "Untitled"
+msgstr "Uden titel"
+
+#. module: web_cohort
+#: model:ir.model,name:web_cohort.model_ir_ui_view
+msgid "View"
+msgstr "Vis"
+
+#. module: web_cohort
+#: model:ir.model.fields,field_description:web_cohort.field_ir_actions_act_window_view__view_mode
+#: model:ir.model.fields,field_description:web_cohort.field_ir_ui_view__type
+msgid "View Type"
+msgstr "Se type"
+
+#. module: web_cohort
+#. openerp-web
+#: code:addons/web_cohort/static/src/js/cohort_view.js:0
+#, python-format
+msgid "Week"
+msgstr "Uge"
+
+#. module: web_cohort
+#. openerp-web
+#: code:addons/web_cohort/static/src/js/cohort_view.js:0
+#, python-format
+msgid "Year"
+msgstr "År"

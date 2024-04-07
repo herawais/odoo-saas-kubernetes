@@ -1,0 +1,2 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_saas_portal_api_stripe_session,access_saas_portal_api_stripe_session,model_portal_stripe_checkout_session,kk_odoo_saas.group_saas_manager,1,1,1,1

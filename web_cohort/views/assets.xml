@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <template id="assets_backend" name="cohort assets" inherit_id="web.assets_backend">
+        <xpath expr="." position="inside">
+            <script type="text/javascript" src="/web_cohort/static/src/js/cohort_view.js" />
+            <script type="text/javascript" src="/web_cohort/static/src/js/cohort_model.js" />
+            <script type="text/javascript" src="/web_cohort/static/src/js/cohort_controller.js" />
+            <script type="text/javascript" src="/web_cohort/static/src/js/cohort_renderer.js" />
+            <script type="text/javascript" src="/web_cohort/static/src/js/sample_server.js" />
+            <link rel="stylesheet" type="text/scss" href="/web_cohort/static/src/scss/web_cohort.scss" />
+        </xpath>
+    </template>
+
+    <template id="qunit_suite" name="cohort tests" inherit_id="web.qunit_suite_tests">
+        <xpath expr="//script[contains(@src, '/web/static/tests/views/kanban_tests.js')]" position="after">
+            <script type="text/javascript" src="/web_cohort/static/tests/cohort_tests.js" />
+            <script type="text/javascript" src="/web_cohort/static/tests/mock_server.js" />
+        </xpath>
+    </template>
+
+</odoo>

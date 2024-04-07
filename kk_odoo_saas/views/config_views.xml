@@ -1,0 +1,274 @@
+<odoo>
+    <data>
+        <!-- explicit list view definition -->
+        <record model="ir.ui.view" id="kk_odoo_saas_k8s_config_list">
+            <field name="name">kk_odoo_saas k8s config list</field>
+            <field name="model">kk_odoo_saas.k8s.config</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="name"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="kk_odoo_saas_k8s_config_kanban" model="ir.ui.view">
+            <field name="name">kk_odoo_saas k8s config kanban</field>
+            <field name="model">kk_odoo_saas.k8s.config</field>
+            <field name="arch" type="xml">
+                <kanban>
+                    <field name="name"/>
+                    <templates>
+                        <t t-name="kanban-box">
+                            <div class="oe_kanban_global_click container">
+                                <field name="name"/>
+                                <!--                                <t t-raw="record.name"/>-->
+                            </div>
+                        </t>
+                    </templates>
+                </kanban>
+            </field>
+        </record>
+
+        <record id="kk_odoo_saas_k8s_config_view_form" model="ir.ui.view">
+            <field name="name">kk_odoo_saas_k8s_config_view_form</field>
+            <field name="model">kk_odoo_saas.k8s.config</field>
+            <field name="arch" type="xml">
+                <form>
+                    <header>
+                            <button name="update_cluster_nodes" string="Update Nodes" type="object"/>
+                    </header>
+                    <sheet>
+                        <group>
+                            <field name="name" required="1"/>
+                            <field name="config_file" required="1" widget="ace" class="oe_edit_only"/>
+                            <field name="domain_name"
+                                   placeholder=".yourdomain.com | A DNS Should be set and configures as *.yourdomain.com"
+                                   required="1"/>
+                            <field name="namespaces" readonly="1"/>
+<!--                            <button name="check_connectivity" string="Check Connection" type="object"/>-->
+                        </group>
+                        <group>
+                            <button name="check_connectivity" string="Check Connection" type="object"/>
+                        </group>
+<!--                        <notebook>-->
+<!--                            <page string="NameSpaces" name="ns">-->
+
+<!--                            </page>-->
+<!--                            <page string="Pods" name="pod">-->
+
+<!--                            </page>-->
+<!--                            <page string="deployments" name="deployment">-->
+
+<!--                            </page>-->
+<!--                            <page string="Ingresses" name="ingress">-->
+
+<!--                            </page>-->
+<!--                            <page string="Service" name="service">-->
+
+<!--                            </page>-->
+<!--                            <page string="PVs" name="pv">-->
+
+<!--                            </page>-->
+<!--                        </notebook>-->
+
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="kk_odoo_saas_k8s_config_action" model="ir.actions.act_window">
+            <field name="name">K8s Configuration</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">kk_odoo_saas.k8s.config</field>
+            <field name="view_mode">kanban,list,form</field>
+        </record>
+
+        <record model="ir.ui.view" id="kk_odoo_saas_k8s_docker_images_list">
+            <field name="name">kk_odoo_saas k8s config list</field>
+            <field name="model">kk_odoo_saas.k8s.docker.images</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="name"/>
+                    <field name="tag"/>
+                    <field name="description"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="kk_odoo_saas_k8s_docker_images_kanban" model="ir.ui.view">
+            <field name="name">kk_odoo_saas k8s docker images kanban</field>
+            <field name="model">kk_odoo_saas.k8s.docker.images</field>
+            <field name="arch" type="xml">
+                <kanban>
+                    <field name="name"/>
+                    <field name="tag"/>
+                    <field name="description"/>
+                    <field name="is_pvt_dkr_repo"/>
+                    <templates>
+                        <t t-name="kanban-box">
+                            <div class="oe_kanban_global_click container">
+                                <strong>Image Name:</strong> <field name="name"/>
+                                <br/>
+                                <strong>Tag Name:</strong> <field name="tag"/>
+                                <br/>
+                                <strong>Description:</strong> <field name="description"/>
+                                <br/>
+                                <strong>Is Private Repo?</strong> <field name="is_pvt_dkr_repo"/>
+                                <!--                                <t t-raw="record.name"/>-->
+                            </div>
+                        </t>
+                    </templates>
+                </kanban>
+            </field>
+        </record>
+
+        <record id="kk_odoo_saas_k8s_docker_images_view_form" model="ir.ui.view">
+            <field name="name">kk_odoo_saas_k8s_docker_images_view_form</field>
+            <field name="model">kk_odoo_saas.k8s.docker.images</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+
+                        <group>
+                            <group>
+                                <field name="name"/>
+                                <field name="tag"/>
+                                <field name="description"/>
+                                <field name="repo_link"/>
+                                <field name="base_version"/>
+                            </group>
+                            <group>
+                                <field name="is_pvt_dkr_repo" widget="boolean_toggle"/>
+                                <field name="b64_dkr_config" class="oe_edit_only" attrs="{'invisible': [('is_pvt_dkr_repo', '=', False)],
+                                'required':[('is_pvt_dkr_repo', '=', True)]}"
+                                       placeholder="Place your .docker/config.json after encoding it in base64"/>
+
+                            </group>
+
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="kk_odoo_saas_k8s_docker_images_action" model="ir.actions.act_window">
+            <field name="name">Docker Images</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">kk_odoo_saas.k8s.docker.images</field>
+            <field name="view_mode">kanban,list,form</field>
+        </record>
+
+        <record id="kk_odoo_saas_k8s_node_view_tree" model="ir.ui.view">
+            <field name="name">kk_odoo_saas_k8s_node_view_tree</field>
+            <field name="model">kk_odoo_saas.k8s.node</field>
+            <field name="arch" type="xml">
+                <tree string="Cluster Nodes" create="false">
+                    <field name="name"/>
+                    <field name="create_date"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="kk_odoo_saas_k8s_node_view_form" model="ir.ui.view">
+            <field name="name">kk_odoo_saas_k8s_node_view_form</field>
+            <field name="model">kk_odoo_saas.k8s.node</field>
+            <field name="arch" type="xml">
+                <form string="Cluster Nodes" create="false">
+                    <sheet>
+                        <group>
+                            <field name="name"/>
+                        </group>
+                        <group>
+                            <field name="labels" widget="ace"/>
+                        </group>
+                        <group>
+                            <field name="annotations" widget="ace"/>
+                        </group>
+                        <group>
+                            <field name="taints" widget="ace"/>
+                        </group>
+
+                    </sheet>
+                    <sheet>
+                        <group>
+                            <field name="yaml_info" widget="ace"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="kk_master_db_server_view_tree" model="ir.ui.view">
+            <field name="name">kk_master_db_server_view_tree</field>
+            <field name="model">kk_odoo_saas.k8s.master_db_creds</field>
+            <field name="arch" type="xml">
+                <tree string="DB Server Credentials" >
+                    <field name="name"/>
+                    <field name="server_url"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="kk_master_db_server_view_form" model="ir.ui.view">
+            <field name="name">kk_master_db_server_view_form</field>
+            <field name="model">kk_odoo_saas.k8s.master_db_creds</field>
+            <field name="arch" type="xml">
+                <form string="DB Server Credentials">
+                    <header>
+                        <button name="check_connectivity" string="Check Connectivity" type="object"/>
+                        <field name="status" widget="statusbar"/>
+                    </header>
+
+                    <sheet>
+                        <group>
+                            <field name="name"/>
+                        </group>
+                        <group>
+                            <field name="master_username" />
+                            <field name="server_port" />
+                        </group>
+                        <group>
+                            <field name="master_pass" password="True"/>
+                        </group>
+                        <group>
+                            <field name="server_url" />
+                        </group>
+
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+
+        <record id="kk_odoo_saas_k8s_node_action" model="ir.actions.act_window">
+            <field name="name">Cluster Nodes</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">kk_odoo_saas.k8s.node</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <record id="kk_odoo_saas_master_db_creds_action" model="ir.actions.act_window">
+            <field name="name">Master DB Creds</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">kk_odoo_saas.k8s.master_db_creds</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+
+        <menuitem name="Configuration" id="kk_odoo_saas_configuration_root" parent="menu_root"/>
+
+        <menuitem name="Clusters Configurations" id="kk_odoo_saas_configuration"
+                  parent="kk_odoo_saas_configuration_root"
+                  action="kk_odoo_saas.kk_odoo_saas_k8s_config_action"/>
+
+        <menuitem name="Docker Images" id="kk_odoo_saas_docker_images" parent="kk_odoo_saas_configuration_root"
+                  action="kk_odoo_saas.kk_odoo_saas_k8s_docker_images_action"/>
+
+        <menuitem name="Cluster Nodes" id="kk_odoo_saas_cluster_nodes" parent="kk_odoo_saas_configuration_root"
+                  action="kk_odoo_saas.kk_odoo_saas_k8s_node_action"/>
+
+        <menuitem name="Master DB Server" id="kk_odoo_saas_master_db_server" parent="kk_odoo_saas_configuration_root"
+                  action="kk_odoo_saas.kk_odoo_saas_master_db_creds_action"/>
+
+    </data>
+</odoo>

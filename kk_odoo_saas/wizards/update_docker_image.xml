@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+
+    <record id="view_saas_app_update_dkr_img" model="ir.ui.view">
+        <field name="name">Update Docker Image of Instance</field>
+        <field name="model">kk_odoo_saas.app.update.dkr.img.wizard</field>
+        <field name="arch" type="xml">
+            <form string="Update Docker Image of Instance">
+                <group string="Please choose settings.">
+                    <field name="container_arguments"/>
+                    <field name="container_argument_ids">
+                        <tree string="Options" editable="bottom">
+                            <field name="name" required="1"/>
+                            <field name="value" required="1"/>
+                        </tree>
+                    </field>
+                    <field name="container_env_var_ids">
+                        <tree string="Options" editable="bottom">
+                            <field name="name" required="1"/>
+                            <field name="value" required="1"/>
+                        </tree>
+
+                    </field>
+                </group>
+                <group>
+                    <div class="accordion md-accordion" id="accordionEx" role="tablist" aria-multiselectable="true">
+                        <!-- Accordion card -->
+                        <div class="card">
+                            <!-- Card header -->
+                            <div class="card-header" role="tab" id="headingOne1">
+                                <a data-toggle="collapse" data-parent="#accordionEx" href="#collapseOne1"
+                                   aria-expanded="true"
+                                   aria-controls="collapseOne1">
+                                    <h5 class="mb-0">
+                                        <i class="fa fa-arrow-right"/>
+                                        Click To See Yaml of Deployment (Advanced)
+                                    </h5>
+                                </a>
+                            </div>
+
+                            <!-- Card body -->
+                            <div id="collapseOne1" class="collapse " role="tabpanel" aria-labelledby="headingOne1"
+                                 data-parent="#accordionEx">
+                                <field name="deployment_yaml" widget="ace" options="{'mode': 'yaml'}" nolabel="1"/>
+                            </div>
+
+                        </div>
+                    </div>
+
+                </group>
+                <footer>
+                    <button
+                            name="update_docker_image"
+                            string="Update Docker Image"
+                            type="object"
+                            class="oe_highlight"
+                    />
+                    <button string="Cancel" class="oe_link" special="cancel"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_saas_app_update_dkr_img_wizard" model="ir.actions.act_window">
+        <field name="name">Update Docker Image of Instance</field>
+        <field name="res_model">kk_odoo_saas.app.update.dkr.img.wizard</field>
+        <field name="view_mode">form</field>
+        <field name="view_id" ref="view_saas_app_update_dkr_img"/>
+        <field name="target">new</field>
+        <field name="binding_model_id" ref="kk_odoo_saas.model_kk_odoo_saas_app"/>
+    </record>
+
+</odoo>

@@ -1,0 +1,73 @@
+<odoo>
+    <record id='saas_package_view_tree' model='ir.ui.view'>
+        <field name="name">saas.package.tree</field>
+        <field name="model">saas.package</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name" string="Package Name"/>
+                <field name="month_price" string="Monthly Price"/>
+                <field name="year_price" string="Yearly Price"/>
+                <field name="month_product_id"/>
+                <field name="year_product_id"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="saas_package_form_view" model="ir.ui.view">
+        <field name="name">saas.package.form</field>
+        <field name="model">saas.package</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <field name="package_image" widget="image" class="oe_avatar o_field_image"/>
+                    <div class="oe_title">
+                        <h1>
+                            <field name="name" readonly="0" placeholder="Name"/>
+                        </h1>
+                    </div>
+
+                    <group>
+                        <group>
+                            <field name="is_published"/>
+                            <field name="docker_image" required="1"/>
+                        </group>
+                        <group>
+                            <field name="month_price"/>
+                            <field name="year_price"/>
+                        </group>
+
+                        <group>
+                            <field name="month_product_id"/>
+                            <field name="year_product_id"/>
+                        </group>
+                        <group>
+                            <field name="module_ids" widget="many2many_tags"/>
+                        </group>
+                        <group>
+                            <field name="product_tmpl_id" string="Product Template"/>
+                        </group>
+                        <group>
+                            <field name="stripe_product_id" password="True"/>
+                            <field name="subscription_template" required="True"/>
+
+                        </group>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_saas_package_list" model="ir.actions.act_window">
+        <field name="name">Portal Packages</field>
+        <field name="res_model">saas.package</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <menuitem name="Manage Packages"
+              id="menu_website_manage_package_list"
+              action="action_saas_package_list"
+              parent="menu_website"
+              sequence="40"
+    />
+
+</odoo>

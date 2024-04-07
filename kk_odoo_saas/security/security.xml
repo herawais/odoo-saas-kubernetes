@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <data>
+        <record model="ir.module.category" id="module_category_saas">
+            <field name="name">SaaS Management</field>
+            <field name="sequence">22</field>
+        </record>
+        <record id="group_saas_manager" model="res.groups">
+            <field name="name">SaaS Manager</field>
+            <field name="category_id" ref="module_category_saas" />
+            <field
+                name="users"
+                eval="[(4, ref('base.user_root')), (4, ref('base.user_admin'))]"
+            />
+        </record>
+        <record id="group_saas_client" model="res.groups">
+            <field name="name">SaaS Client</field>
+            <field name="category_id" ref="module_category_saas" />
+        </record>
+        <!--        manager rules start-->
+
+        <!--        manager rules end-->
+
+
+        <!--        customer rules start-->
+        <!--        only show its own apps to customers-->
+        <record id="rule_own_saas_apps_only" model="ir.rule">
+            <field name="name">Personal SaaS App Visibility to Customer</field>
+            <field ref="model_kk_odoo_saas_app" name="model_id"/>
+            <field name="domain_force">[('admin_user','=',user.id)]</field>
+            <field name="groups" eval="[(4, ref('kk_odoo_saas.group_saas_client'))]"/>
+        </record>
+
+    </data>
+
+</odoo>

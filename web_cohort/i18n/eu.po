@@ -1,0 +1,173 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* web_cohort
+# 
+# Translators:
+# Martin Trigaux, 2021
+# oihane <oihanecruce@gmail.com>, 2021
+# Gorka Toledo <gorka.toledo@gmail.com>, 2021
+# Eneko <eastigarraga@codesyntax.com>, 2021
+# 61590936fa9bf290362ee306eeabf363_944dd10 <a8bfd5a0b49b9c8455f33fc521764cc3_680674>, 2021
+# 
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server saas~13.5+e\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-09-01 07:40+0000\n"
+"PO-Revision-Date: 2020-09-07 08:25+0000\n"
+"Last-Translator: 61590936fa9bf290362ee306eeabf363_944dd10 <a8bfd5a0b49b9c8455f33fc521764cc3_680674>, 2021\n"
+"Language-Team: Basque (https://www.transifex.com/odoo/teams/41243/eu/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Language: eu\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#. module: web_cohort
+#: code:addons/web_cohort/controllers/main.py:0
+#, python-format
+msgid "%s - By %s"
+msgstr ""
+
+#. module: web_cohort
+#. openerp-web
+#: code:addons/web_cohort/static/src/xml/web_cohort.xml:0
+#, python-format
+msgid "- By"
+msgstr ""
+
+#. module: web_cohort
+#: model:ir.model,name:web_cohort.model_ir_actions_act_window_view
+msgid "Action Window View"
+msgstr ""
+
+#. module: web_cohort
+#. openerp-web
+#: code:addons/web_cohort/controllers/main.py:0
+#: code:addons/web_cohort/static/src/xml/web_cohort.xml:0
+#, python-format
+msgid "Average"
+msgstr "Batezbestekoa"
+
+#. module: web_cohort
+#: model:ir.model,name:web_cohort.model_base
+msgid "Base"
+msgstr "Oinarri"
+
+#. module: web_cohort
+#. openerp-web
+#: code:addons/web_cohort/static/src/js/cohort_view.js:0
+#: model:ir.model.fields.selection,name:web_cohort.selection__ir_actions_act_window_view__view_mode__cohort
+#: model:ir.model.fields.selection,name:web_cohort.selection__ir_ui_view__type__cohort
+#, python-format
+msgid "Cohort"
+msgstr ""
+
+#. module: web_cohort
+#. openerp-web
+#: code:addons/web_cohort/static/src/js/cohort_view.js:0
+#, python-format
+msgid "Cohort view has not defined \"date_start\" attribute."
+msgstr ""
+
+#. module: web_cohort
+#. openerp-web
+#: code:addons/web_cohort/static/src/js/cohort_view.js:0
+#, python-format
+msgid "Cohort view has not defined \"date_stop\" attribute."
+msgstr ""
+
+#. module: web_cohort
+#. openerp-web
+#: code:addons/web_cohort/static/src/js/cohort_controller.js:0
+#: code:addons/web_cohort/static/src/js/cohort_view.js:0
+#: code:addons/web_cohort/static/src/xml/web_cohort.xml:0
+#, python-format
+msgid "Count"
+msgstr "Kontua "
+
+#. module: web_cohort
+#. openerp-web
+#: code:addons/web_cohort/static/src/js/cohort_view.js:0
+#, python-format
+msgid "Day"
+msgstr "Eguna"
+
+#. module: web_cohort
+#: model:ir.model.fields,field_description:web_cohort.field_ir_actions_act_window_view__display_name
+#: model:ir.model.fields,field_description:web_cohort.field_ir_ui_view__display_name
+msgid "Display Name"
+msgstr "Izena erakutsi"
+
+#. module: web_cohort
+#. openerp-web
+#: code:addons/web_cohort/static/src/xml/web_cohort.xml:0
+#, python-format
+msgid "Download in Excel file"
+msgstr ""
+
+#. module: web_cohort
+#: model:ir.model.fields,field_description:web_cohort.field_ir_actions_act_window_view__id
+#: model:ir.model.fields,field_description:web_cohort.field_ir_ui_view__id
+msgid "ID"
+msgstr "ID"
+
+#. module: web_cohort
+#: model:ir.model.fields,field_description:web_cohort.field_ir_actions_act_window_view____last_update
+#: model:ir.model.fields,field_description:web_cohort.field_ir_ui_view____last_update
+msgid "Last Modified on"
+msgstr "Azken aldaketa"
+
+#. module: web_cohort
+#. openerp-web
+#: code:addons/web_cohort/static/src/xml/web_cohort.xml:0
+#, python-format
+msgid "Measures"
+msgstr "Neurriak"
+
+#. module: web_cohort
+#. openerp-web
+#: code:addons/web_cohort/static/src/js/cohort_view.js:0
+#, python-format
+msgid "Month"
+msgstr "Hilabetea"
+
+#. module: web_cohort
+#. openerp-web
+#: code:addons/web_cohort/static/src/xml/web_cohort.xml:0
+#: code:addons/web_cohort/static/src/xml/web_cohort.xml:0
+#, python-format
+msgid "No data available."
+msgstr ""
+
+#. module: web_cohort
+#. openerp-web
+#: code:addons/web_cohort/static/src/js/cohort_view.js:0
+#, python-format
+msgid "Untitled"
+msgstr ""
+
+#. module: web_cohort
+#: model:ir.model,name:web_cohort.model_ir_ui_view
+msgid "View"
+msgstr "Ikusi"
+
+#. module: web_cohort
+#: model:ir.model.fields,field_description:web_cohort.field_ir_actions_act_window_view__view_mode
+#: model:ir.model.fields,field_description:web_cohort.field_ir_ui_view__type
+msgid "View Type"
+msgstr ""
+
+#. module: web_cohort
+#. openerp-web
+#: code:addons/web_cohort/static/src/js/cohort_view.js:0
+#, python-format
+msgid "Week"
+msgstr "Astea"
+
+#. module: web_cohort
+#. openerp-web
+#: code:addons/web_cohort/static/src/js/cohort_view.js:0
+#, python-format
+msgid "Year"
+msgstr "Urtea"

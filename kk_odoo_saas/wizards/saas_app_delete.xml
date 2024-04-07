@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+
+    <record id="view_saas_app_delete" model="ir.ui.view">
+        <field name="name">Delete SaaS Instance</field>
+        <field name="model">kk_odoo_saas.app.delete.wizard</field>
+        <field name="arch" type="xml">
+            <form string="Delete SaaS Instance">
+                <group string="Please choose options you want to delete.">
+<!--                    <field name="job_ids" nolabel="1" />-->
+                    <field name="delete_database"/>
+                    <field name="delete_pv"/>
+                    <field name="delete_svc"/>
+                    <field name="delete_ing"/>
+                    <field name="delete_deployment"/>
+                    <field name="app_id" invisible="1"/>
+                </group>
+                <footer>
+                    <button
+                        name="delete_saas_instance"
+                        string="Delete Instance"
+                        type="object"
+                        class="oe_highlight"
+                    />
+                    <button string="Cancel" class="oe_link" special="cancel" />
+                </footer>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_saas_app_delete_wizard" model="ir.actions.act_window">
+        <field name="name">Delete SaaS Instance</field>
+        <field name="res_model">kk_odoo_saas.app.delete.wizard</field>
+        <field name="view_mode">form</field>
+        <field name="view_id" ref="view_saas_app_delete" />
+        <field name="target">new</field>
+        <field name="binding_model_id" ref="kk_odoo_saas.model_kk_odoo_saas_app" />
+    </record>
+
+</odoo>
