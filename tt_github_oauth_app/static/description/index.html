@@ -1,0 +1,512 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8"/>
+    <meta content="IE=edge" http-equiv="X-UA-Compatible">
+    <title>Odoo</title>
+    <meta content="width=device-width, initial-scale=1" name="viewport">
+    <link href="https://apps.odoocdn.com/web/content/7297172-19e3d31/1/web.assets_frontend.css" rel="stylesheet"/>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
+    <link crossorigin="anonymous" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+          integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" rel="stylesheet">
+
+    <style>
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6,
+        {
+            font-family: "Helvetica";
+            font-weight: 400;
+            line-height: 1.1;
+            color: #21272b;
+        }
+
+        ul {
+            color: #222020!important;
+        }
+
+        * {
+             font-family: 'Helvetica';
+        }
+
+        .custom-hover:hover{
+            background-color:#d54c58!important;
+            color:white!important;
+        }
+        .al-hover:hover{
+            background-color:#7e2778!important;
+            color:white!important;
+        }
+        .list-group-item-action-custom{
+            width: 100%;
+            color: #495057;
+            text-align: inherit;
+        }
+        .remove:before {
+            content: none;
+        }
+    </style>
+</head>
+<body>
+<main class="container">
+    <header class="py-2">
+        <div class="row align-items-center">
+            <div class="col-12 col-md-4">
+                <span class="btn pr-2">
+                    <img alt="tortecs-logo" src="images/tortecs_logo.jpg" style="height:40px">
+                </span>
+            </div>
+            <div class="col-6 col-md-8 text-md-right">
+                <span class="btn btn-sm py-2 px-md-3 mr-1"
+                      style="font-size: 13px;font-size: 14px; font-weight: 500;background-color: #d54c58;color:#fff;">
+                    <i class="fa fa-check mr-1"></i>
+                    Community
+                </span>
+                <span class="btn btn-sm py-2 px-md-3 mr-1"
+                      style="font-size: 13px;font-size: 14px; font-weight: 500;background-color: #d54c58;color:#fff;">
+                    <i class="fa fa-check mr-1"></i>
+                    Enterprise
+                </span>
+            </div>
+        </div>
+        <hr/>
+    </header>
+    <div class="container py-5 oe_styling_v8" id="loempia_tabs"
+         style="color: #0b3b52;font-family: 'Open sans','sans-serif';">
+        <div class="row">
+            <div class="col-12 col-md-12 text-center text-md-left">
+                <h1 style="color: black;">
+                    <center>
+                        <i class="fa fa-github"></i>
+                        <b><u>Login via GitHub</u></b>
+                    </center>
+                </h1>
+            </div>
+            <div class="p-3 mt-3 p-lg-5 w-100" style="background-color: #fff7f8; border-radius: 29px;">
+                <div class="row">
+                    <div class="col-md-12 col-lg-7 mt-5">
+                        <h1 style="font-weight: bold;font-size: 28px;line-height: 42px;text-transform: capitalize;color: #173E85; font-family: 'Poppins', sans-serif;">
+                            Brought to you by - Tortecs
+                        </h1>
+                        <p style="line-height: 148.5%;color: #414141; margin-bottom: 36px; font-family: 'Poppins', sans-serif;">
+                            If you have any requirements or need any support just email us to get your
+                            work done with our deep expertise on odoo.
+                        </p>
+                    </div>
+                    <div class="col-md-6 col-lg-5 text-center" style="height:150px;">
+                        <img alt="" class="position-relative img-fluid" src="images/support.png" style="height:100%;">
+                        <div class="d-flex justify-content-center flex-wrap">
+                            <a href="mailto:tortecs.in@gmail.com" class="btn btn-outline-secondary btn-lg active "
+                               role="button" aria-pressed="true" style="background-color: transparent!important;">
+                                <span style="color:#7e2778;">
+                                    <i class="fa fa-envelope"></i> Email Us
+                                </span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="pb-4 position-relative">
+            <div class="py-3">
+                <div class="col-12 px-0">
+                    <p class="pt-2" style="font-weight: 400;">
+                        This application offers user to login to odoo via GitHub using user's GitHub credentials.
+                        User can now log into odoo just by clicking <b>Log in with GitHub</b>.
+                    </p>
+                </div>
+            </div>
+            <div class="row no-gutters mb-4" style="background: #f1f0f0;">
+                <div class="col-sm-6 pr-sec p-3 border border-right-1">
+                    <i class="fa fa-circle text-success" style="position: absolute;  top:-8px; left: -5px;"></i>
+                    <p style="font-size: 16px;">
+                        User can not log into odoo via GitHub.
+                    </p>
+                </div>
+                <div class="col-sm-6 p-3 border border-left-0" style="background: #f1f0f0;">
+                    <i class="fa fa-circle text-success text-success"
+                       style="position: absolute; top:-8px; left:-5px;"></i>
+                    <p style="color: #212829;font-size: 16px;">
+                        With a single click login to GitHub without using any credentials.
+                    </p>
+                </div>
+            </div>
+            <div class="row no-gutters mb-4" style="background: #f1f0f0;">
+                <div class="col-sm-6 pr-sec p-3 border border-right-1">
+                    <i class="fa fa-circle text-success" style="position: absolute;  top:-8px; left: -5px;"></i>
+                    <p style="font-size: 16px;">
+                        App uses browser entry for GitHub to Login
+                    </p>
+                </div>
+                <div class="col-sm-6 p-3 border border-left-0" style="background: #f1f0f0;">
+                    <i class="fa fa-circle text-success text-success"
+                       style="position: absolute; top:-8px; left:-5px;"></i>
+                    <p style="color: #212829;font-size: 16px;">
+                        Seamless Login Process.
+                    </p>
+                </div>
+            </div>
+            <div class="row no-gutters mb-4" style="background: #f1f0f0;">
+                <div class="col-sm-6 pr-sec p-3 border border-right-1">
+                    <i class="fa fa-circle text-success" style="position: absolute;  top:-8px; left: -5px;"></i>
+                    <p style="font-size: 16px;">
+                        Control GitHub User login, whether they will be internal or portal users.
+                    </p>
+                </div>
+                <div class="col-sm-6 p-3 border border-left-0" style="background: #f1f0f0;">
+                    <i class="fa fa-circle text-success text-success"
+                       style="position: absolute; top:-8px; left:-5px;"></i>
+                    <p style="color: #212829;font-size: 16px;">
+                        Store GitHub users oauth token for future logins and repo access.
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="text-center ">
+            <img alt="" class="img-fluid" src="./img/full-screen.jpg">
+        </div>
+        <div>
+            <div>
+                <div class="justify-content-center d-flex">
+                    <ul class="nav o_tab_nav p-3" style="border-radius: 6px 6px;overflow:hidden;background-color:transparent">
+                        <li class="nav-item">
+                            <a class="nav-link active px-md-4 list-group-item-action-custom custom-hover"
+                               data-toggle="pill"
+                               href="#pills-choose"
+                               style="border-radius:20px; border: 1px solid #d54c58;opacity: 1;padding:16px;">
+                                <b>Installation</b>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link px-md-4 list-group-item-action-custom custom-hover"
+                               data-toggle="pill"
+                               href="#FAQ"
+                               style="border-radius:20px; border: 1px solid #d54c58;opacity: 1;padding:16px; margin-left:10px;">
+                                <b>FAQ's</b>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Tab panes -->
+                <div class="tab-content py-5">
+                    <div class="tab-pane active" id="pills-choose">
+                        <div class="row">
+                            <div class="col-12 col-md-4">
+                                <ul class="nav o_tab_nav"
+                                    style="text-transform: capitalize; font-size: 18px; border-radius: 6px 6px;background-color: transparent">
+                                    <li class="nav-item w-100 mb-3">
+                                        <a class="nav-link d-flex align-items-center px-3 py-2 list-group-item-action-custom active custom-hover"
+                                           data-toggle="pill" href="#click1"
+                                           style="border: 1px solid #d54c58;opacity:1;letter-spacing: inherit;text-transform: capitalize;transition: 0.3s ease-in-out;">
+                                            <i style="font-size: 20px;"></i>
+                                            Configuring GitHub
+                                        </a>
+                                    </li>
+                                    <li class="nav-item w-100 mb-3">
+                                        <a class="nav-link d-flex align-items-center px-3 py-2 list-group-item-action-custom custom-hover"
+                                           data-toggle="pill" href="#click2"
+                                           style="border: 1px solid #d54c58;opacity:1;letter-spacing: inherit;text-transform: capitalize;transition: 0.3s ease-in-out;">
+                                            <i style="font-size: 20px;"></i>
+                                            GitHub Login
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="col-12 col-md-8 pt-4 pt-md-0">
+                                <div class="tab-content h-100">
+                                    <div class="tab-pane active" id="click1">
+                                        <div class="pb-4" style="font-size: 18px;">
+                                            <i class="fa fa-arrow-right"></i>
+                                            <span>
+                                                When you have installed our application,
+                                                you just need to configure Oauth Providers which comes under Odoo Settings.
+                                                <br>
+                                                Just Go to Settings > Oauth Providers (visible only in debug mode).
+                                            </span>
+                                        </div>
+                                        <div class="position-relative" style="padding: 0;">
+                                            <img alt="info-image" class="img img-fluid w-100" src="images/s1.png">
+                                        </div>
+                                        <br>
+                                        <div class="pb-4" style="font-size: 18px;">
+                                            <i class="fa fa-arrow-right"></i>
+                                            <span>
+                                                Enter the Client ID and Client Secret which is genereated by creating
+                                                an Oauth App on GitHub.<br>
+                                                To Create an Oauth App on GitHub just click on below link :- <br>
+                                                <a class="p-3"
+                                                   href="https://docs.github.com/en/developers/apps/building-oauth-apps/creating-an-oauth-app"
+                                                   target="_blank">Creating Oauth Apps</a>
+                                                <br><br>
+                                                Also you can select the type of user you want, to be created when logging.
+                                                Here we have given two options :- <b>Portal</b> and <b>Internal</b> in the User Type field.
+                                            </span>
+                                            <div class="position-relative mt-4" style="padding: 0;">
+                                                <img alt="info-image" class="img img-fluid w-100" src="images/s3.png">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="tab-pane" id="click2">
+                                        <div class="pb-4" style="font-size: 18px;">
+                                            <i class="fa fa-arrow-right"></i>
+                                            <span>
+                                                Now the Login with GitHub option will be visible on Odoo Login page.
+                                                <br>
+                                                Click on the button and Authorize the odoo, and now you will be
+                                                successfully logged into Odoo via your GitHub.
+                                            </span>
+                                            <div class="position-relative mt-4" style="padding: 0;">
+                                                <img alt="info-image" class="img img-fluid w-100" src="images/s2.png">
+                                            </div>
+                                            <div class="position-relative mt-4" style="padding: 0;">
+                                                <img alt="info-image" class="img img-fluid w-100" src="images/s4.png">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="tab-pane fade" id="FAQ">
+                        <div class="card-body p-0">
+                            <div class="text-center pb-5">
+                                <h2 style="color: #0b3b52; font-weight: 600; font-size: 2.5rem;">
+                                    Frequently Asked Questions
+                                </h2>
+                            </div>
+                            <div class="s_faq mx-2 mx-md-5 mb-5">
+                                <div id="accordion">
+                                    <div class="card shadow mb-4"
+                                         style="border: none; border-left: 10px solid #d54c58;">
+                                        <div class="card-header py-4 pl-4 pr-5 bg-white position-relative"
+                                             style="border: none;">
+                                            <div class="d-flex">
+                                                <div class="pr-5"
+                                                     style="font-size: 1.6rem; font-weight: 600; color: #0b3b52;">
+                                                    If I want any customizations whom should I contact ?
+                                                </div>
+                                                <a class="card-link ml-auto remove" data-toggle="collapse" href="#faqTwo"
+                                                   style="
+                                              width: 48px;
+                                              height: 40px;
+                                              line-height: 11px;
+                                              border-radius: 2px;
+                                              padding: 0;
+                                              font-size: 24px;">
+                                                    <i class="fa fa-arrow-down" style="color:#d54c58;"></i>
+                                                </a>
+                                            </div>
+                                        </div>
+                                        <div class="collapse" data-parent="#accordion" id="faqTwo">
+                                            <div class="card-body pt-0 pl-4">
+                                                <div style="font-size: 1.4rem; color: #0b3b52;">
+                                                    Please drop email at tortecs.in@gmail.com, our response time
+                                                    are very less with optimal supports.
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="card shadow mb-4"
+                                         style="border: none; border-left: 10px solid #d54c58;">
+                                        <div class="card-header py-4 pl-4 pr-5 bg-white position-relative"
+                                             style="border: none;">
+                                            <div class="d-flex">
+                                                <div class="pr-5"
+                                                     style="font-size: 1.6rem; font-weight: 600; color: #0b3b52;">
+                                                    Can I run this app on Odoo Enterprise ?
+                                                </div>
+                                                <a class="card-link ml-auto remove" data-toggle="collapse" href="#faqOne"
+                                                   style="
+                                          width: 48px;
+                                          height: 40px;
+                                          line-height: 11px;
+                                          border-radius: 2px;
+                                          padding: 0;
+                                          font-size: 24px;">
+                                                    <i class="fa fa-arrow-down" style="color:#d54c58;"></i>
+                                                </a>
+                                            </div>
+                                        </div>
+                                        <div class="collapse show" data-parent="#accordion" id="faqOne">
+                                            <div class="card-body pt-0 pl-4">
+                                                <div style="font-size: 1.4rem; color: #0b3b52;">
+                                                    Yes, our app works with Odoo Enterprise as well as Community
+                                                    versions.
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="card shadow mb-4"
+                                         style="border: none; border-left: 10px solid #d54c58;">
+                                        <div class="card-header py-4 pl-4 pr-5 bg-white position-relative"
+                                             style="border: none;">
+                                            <div class="d-flex">
+                                                <div class="pr-5"
+                                                     style="font-size: 1.6rem; font-weight: 600; color: #0b3b52;">
+                                                    Do this app extendable ?
+                                                </div>
+                                                <a class="card-link ml-auto remove" data-toggle="collapse" href="#faqThree"
+                                                   style="
+                                              width: 48px;
+                                              height: 40px;
+                                              line-height: 11px;
+                                              border-radius: 2px;
+                                              padding: 0;
+                                              font-size: 24px;">
+                                                    <i class="fa fa-arrow-down" style="color:#d54c58;"></i>
+                                                </a>
+                                            </div>
+                                        </div>
+                                        <div class="collapse" data-parent="#accordion" id="faqThree">
+                                            <div class="card-body pt-0 pl-4">
+                                                <div style="font-size: 1.4rem; color: #0b3b52;">
+                                                    We have designed this app in such a way that it can be easily
+                                                    integrated with other odoo modules.
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="card shadow mb-4"
+                                         style="border: none; border-left: 10px solid #d54c58;">
+                                        <div class="card-header py-4 pl-4 pr-5 bg-white position-relative"
+                                             style="border: none;">
+                                            <div class="d-flex">
+                                                <div class="pr-5"
+                                                     style="font-size: 1.6rem; font-weight: 600; color: #0b3b52;">
+                                                    Do this app supports any GitHub accounts ?
+                                                </div>
+                                                <a class="card-link ml-auto remove" data-toggle="collapse" href="#faqfour"
+                                                   style="
+                                              width: 48px;
+                                              height: 40px;
+                                              line-height: 11px;
+                                              border-radius: 2px;
+                                              padding: 0;
+                                              font-size: 24px;">
+                                                    <i class="fa fa-arrow-down" style="color:#d54c58;"></i>
+                                                </a>
+                                            </div>
+                                        </div>
+                                        <div class="collapse" data-parent="#accordion" id="faqfour">
+                                            <div class="card-body pt-0 pl-4">
+                                                <div style="font-size: 1.4rem; color: #0b3b52;">
+                                                    Yes you can use any GitHub account whether its business or normal
+                                                    account for GitHub logging on odoo.
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <section class="mb-5">
+                <div class="text-center p-2 d-flex justify-content-center align-items-center col-lg-9" style="background-color: #d54c58;
+            box-shadow: 1px 2px 11px rgba(0, 0, 0, 0), 1px 11px 12px rgba(0, 0, 0, 0.22);margin: auto;">
+                    <h3 class="font-weight-bold mb-0 mr-3 text-light">
+                        Note:
+                    </h3>
+                    <h5 class="mb-0 text-light" style="margin-top: 2px;">
+                        Extensively Tested on Odoo Vanilla with Ubuntu OS
+                    </h5>
+                </div>
+            </section>
+
+            <div class="row pb-sm-5 px-1 pb-4">
+                <h2 class="w-100 text-center my-3" style="font-weight: 400;"><u>Tortecs Services</u></h2>
+                <div class="col-12 col-sm-6 col-md-4" style="margin-bottom: 20px;">
+                    <div class="card text-center bg-info"
+                         style="min-height: 90px;box-shadow: 1px 2px 11px rgba(0, 0, 0, 0), 1px 11px 12px rgba(0, 0, 0, 0.22);margin: auto;">
+                        <div class="pt-4" style="background-color: #845EC2 !important;">
+                            <img alt="support" src="images/migrating.png" style="height:50px;">
+                        </div>
+                        <div class="card-body" style="background-color: #845EC2 !important; ">
+                            <h5 class="card-title text-white" style="font-size: 19px; font-weight: 400;">
+                                Odoo Implementation
+                            </h5>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 col-sm-6 col-md-4" style="margin-bottom: 20px;">
+                    <div class="card text-center"
+                         style="min-height: 90px; background-color: #0081CF; box-shadow: 1px 2px 11px rgba(0, 0, 0, 0), 1px 11px 12px rgba(0, 0, 0, 0.22);margin: auto;">
+                        <div class="pt-4">
+                            <img alt="apps" src="images/migration.png" style="height:50px;">
+                        </div>
+                        <div class="card-body" style="background-color: transparent !important;">
+                            <h5 class="card-title text-white" style="font-size: 19px; font-weight: 400;">
+                                Odoo Migrations</h5>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 col-sm-6 col-md-4" style="margin-bottom: 20px;">
+                    <div class="card text-center"
+                         style="min-height: 90px;background-color: #C34A36; box-shadow: 1px 2px 11px rgba(0, 0, 0, 0), 1px 11px 12px rgba(0, 0, 0, 0.22);margin: auto;">
+                        <div class="pt-4">
+                            <img alt="support2" src="images/customer-service.png" style="height:50px;">
+                        </div>
+                        <div class="card-body" style="background-color: transparent !important;">
+                            <h5 class="card-title text-white" style="font-size: 19px; font-weight: 400;">
+                                Odoo Support&amp;Maintenance</h5>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 col-sm-6 col-md-4" style="margin-bottom: 20px;margin-left:16%">
+                    <div class="card text-center"
+                         style="min-height: 90px; background-color: #008F7A; box-shadow: 1px 2px 11px rgba(0, 0, 0, 0), 1px 11px 12px rgba(0, 0, 0, 0.22);margin: auto;">
+                        <div class="pt-4">
+                            <img alt="custom" src="images/customize.png" style="height:50px;">
+                        </div>
+                        <div class="card-body" style="background-color: transparent !important;">
+                            <h5 class="card-title text-white" style="font-size: 19px; font-weight: 400;">
+                                Odoo Customization</h5>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 col-sm-6 col-md-4" style="margin-bottom: 20px;">
+                    <div class="card text-center"
+                         style="min-height: 90px; background-color: #936C00; box-shadow: 1px 2px 11px rgba(0, 0, 0, 0), 1px 11px 12px rgba(0, 0, 0, 0.22);margin: auto;">
+                        <div class="pt-4">
+                            <img alt="integrated" src="images/integration.png" style="height:50px;">
+                        </div>
+                        <div class="card-body" style="background-color: transparent !important;">
+                            <h5 class="card-title text-white" style="font-size: 19px; font-weight: 400;">
+                                Odoo Integration Services</h5>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div>
+                <div class="row justify-content-center"
+                     style="border-top: 1px solid black;">
+                    <div class="mb-sm-0 mb-3">
+                        <i class="fa fa-envelope fa-2x"
+                           style=" margin-right: 10px; color: #333;  transform: translateY(3px);"></i>
+                        <span style="font-size: 18px;">tortecs.in@gmail.com</span>
+                    </div>
+                </div>
+            </div>
+            <!-- container End -->
+        </div>
+    </div>
+</main>
+<script crossorigin="anonymous"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+<script crossorigin="anonymous"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+        src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+<script crossorigin="anonymous"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+</body>
+</html>

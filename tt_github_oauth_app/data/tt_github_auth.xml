@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <data noupdate="0">
+        <record id="tt_provider_github" model="auth.oauth.provider">
+            <field name="name">GitHub</field>
+            <field name="auth_endpoint">https://github.com/login/oauth/authorize</field>
+            <field name="scope">repo,user</field>
+            <field name="enabled">True</field>
+            <field name="validation_endpoint">https://github.com/login/oauth/access_token</field>
+            <field name="css_class">fa fa-fw fa-github</field>
+            <field name="body">Log in with GitHub</field>
+        </record>
+    </data>
+</odoo>

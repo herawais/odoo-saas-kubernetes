@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <record id="tt_oauth_form_view_inherit" model="ir.ui.view">
+        <field name="name">tt.oauth.form.view.inherit</field>
+        <field name="model">auth.oauth.provider</field>
+        <field name="inherit_id" ref="auth_oauth.view_oauth_provider_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name = 'client_id']" position="after">
+                <field name="tt_client_secret" attrs="{'invisible': [('tt_is_github', '!=', True)], 'required': [('tt_is_github', '=', True)]}"/>
+                <field name="tt_user_type" widget="radio" options="{'horizontal':True}"/>
+                <field name="tt_is_github" invisible="1"/>
+            </xpath>
+        </field>
+    </record>
+</odoo>
