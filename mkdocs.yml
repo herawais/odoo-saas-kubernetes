@@ -18,5 +18,5 @@ markdown_extensions:
 
 nav:
   - Home: 'index.md'
-  - Setup Manager Instance: 'index.md'
-  - Setup K8s Cluster: 'index.md'
+  - Setup Manager Instance: 'manager.md'
+  - Setup K8s Cluster: 'k8s_cluster.md'
