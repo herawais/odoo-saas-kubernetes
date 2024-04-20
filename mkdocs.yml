@@ -20,3 +20,4 @@ nav:
   - Home: 'index.md'
   - Setup Manager Instance: 'manager.md'
   - Setup K8s Cluster: 'k8s_cluster.md'
+  - Setup DB Server: 'db_server.md'
