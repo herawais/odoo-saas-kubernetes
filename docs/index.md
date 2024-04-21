@@ -74,7 +74,7 @@ then check connectivity if you are able to connect from “Manager Instance” t
 
 this db server will host all the client databases
 
-![Cluster1](img/img4.png)
+![Cluster1](img/img5.png)
 
 
 ### Step 4 (Create App/Instance):
@@ -106,7 +106,7 @@ this db server will host all the client databases
 13. Client user is the user, to whom you want to notify about this instance and creds, you should have configured smtp in your manager instance
 
 
-![Cluster1](img/img5.png)
+![Cluster1](img/img4.png)
 
 
 Save and click on **Deploy App**
