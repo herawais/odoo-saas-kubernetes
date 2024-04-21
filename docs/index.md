@@ -79,29 +79,29 @@ this db server will host all the client databases
 
 ### Step 4 (Create App/Instance):
 
-1. Unique id is the id of instance, dont change it in any case
+1. `Unique id` is the id of instance, dont change it in any case
 
-2. Name, write any name
+2. `Name`, write any name
 
-3. choose sub domain as per your requirement
+3. choose `sub domain` as per your requirement
 
 4. if you want to deploy this client on a specific Node of K8s cluster then check “Any Specific Node” otherwise leave it as it is
 
 5. choose Database server
 
-6. Database name will be the name of db, but sub domain name and database name should be same
+6. `Database name` will be the name of db, but `sub domain name and database name should be same`
 
-7. if you want to use extra addons from github, check the box and enter url, like this “https://github.com/OCA/account-financial-tools.git“ 
+7. if you want to use `extra addons from github`, check the box and enter url, like this “https://github.com/OCA/account-financial-tools.git“ 
 
-8. if the repo is private then you have to place the access token also, more info here 
+8. if the repo is private then you have to place the `access token` also, more info [here](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/managing-your-personal-access-tokens) 
 
-9. Choose the docker image
+9. Choose the `docker image`
 
-10. if you want to install the demo data also then check the box
+10. if you want to install the `demo data` also then check the box
 
-11. leave “Modules to Install” empty
+11. leave `Modules to Install` empty
 
-12. Leave the “App Credentials” empty, these will be automatically populated after the instance goes live
+12. Leave the `App Credentials` empty, these will be automatically populated after the instance goes live
 
 13. Client user is the user, to whom you want to notify about this instance and creds, you should have configured smtp in your manager instance
 
