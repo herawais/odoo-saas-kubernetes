@@ -16,9 +16,8 @@ Uncomment and edit the listen_addresses attribute to start listening to start li
 
     On production dont allow all hosts, only your desired IPs
 
+Replace following in pg_hba.conf
 
- 
- 
     listen_addresses = '*'
 
 Now edit the PostgreSQL access policy configuration file.
@@ -26,15 +25,14 @@ Now edit the PostgreSQL access policy configuration file.
     vim /etc/postgresql/14/main/pg_hba.conf
 
 
-    Append a new connection policy (a pattern stands for [CONNECTION_TYPE][DATABASE][USER] [ADDRESS][METHOD]) in the bottom of the file.
+Append a new connection policy (a pattern stands for [CONNECTION_TYPE][DATABASE][USER] [ADDRESS][METHOD]) in the bottom of the file.
 
 !!! danger "Caution"
 
     On production dont allow all hosts, only your desired IPs
 
+Add following in pg_hba.conf
 
- 
- 
     host all all 0.0.0.0/0 md5
 
 We are allowing TCP/IP connections (host) to all databases (all) for all users (all) with any IPv4 address (0.0.0.0/0) using an MD5 encrypted password for authentication (md5).
