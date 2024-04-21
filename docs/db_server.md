@@ -12,8 +12,10 @@ and dont forget to setup and alowing remote host connections
 
 Uncomment and edit the listen_addresses attribute to start listening to start listening to all available IP addresses.
 
-> [!CAUTION]
-> On production dont allow all hosts, only your desired IPs
+!!! danger "Caution"
+
+    On production dont allow all hosts, only your desired IPs
+
 
     listen_addresses = '*'
 
@@ -24,8 +26,10 @@ Now edit the PostgreSQL access policy configuration file.
 
     Append a new connection policy (a pattern stands for [CONNECTION_TYPE][DATABASE][USER] [ADDRESS][METHOD]) in the bottom of the file.
 
-> [!CAUTION]
-> On production dont allow all hosts, only your desired IPs
+!!! danger "Caution"
+
+    On production dont allow all hosts, only your desired IPs
+
 
     host all all 0.0.0.0/0 md5
 
