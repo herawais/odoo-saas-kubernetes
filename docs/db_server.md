@@ -15,7 +15,10 @@ Uncomment and edit the listen_addresses attribute to start listening to start li
 !!! danger "Caution"
 
     On production dont allow all hosts, only your desired IPs
- .
+
+
+ 
+ 
     listen_addresses = '*'
 
 Now edit the PostgreSQL access policy configuration file.
@@ -29,7 +32,9 @@ Now edit the PostgreSQL access policy configuration file.
 
     On production dont allow all hosts, only your desired IPs
 
- .
+
+ 
+ 
     host all all 0.0.0.0/0 md5
 
 We are allowing TCP/IP connections (host) to all databases (all) for all users (all) with any IPv4 address (0.0.0.0/0) using an MD5 encrypted password for authentication (md5).
