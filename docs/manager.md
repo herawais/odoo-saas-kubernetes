@@ -1,8 +1,6 @@
-{!README.md!}
-
-# Welcome to Odoo SaaS on K8s documentation!
+# Setup Manager Instance to Manage Client Instances
 
 
 !!! note
 
-    This project is under active development.
+    To be added here.
