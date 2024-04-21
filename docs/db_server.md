@@ -1,11 +1,11 @@
-Either Use managed db service from DO https://www.digitalocean.com/products/managed-databases-postgresql 
-
-or Setup a new VPS and install Postgres on it as follows
-
-https://www.cherryservers.com/blog/how-to-install-and-setup-postgresql-server-on-ubuntu-20-04#step-6-setup-postgresql-server
+Either Use managed db service from [DO](https://www.digitalocean.com/products/managed-databases-postgresql)
 
 
-and dont forget to setup following
+
+or Setup a new VPS and install Postgres on your VPS 
+
+
+and dont forget to setup and alowing remote host connections
 
 
     vim /etc/postgresql/14/main/postgresql.conf
@@ -18,7 +18,9 @@ Now edit the PostgreSQL access policy configuration file.
 
     vim /etc/postgresql/14/main/pg_hba.conf
 
+
     Append a new connection policy (a pattern stands for [CONNECTION_TYPE][DATABASE][USER] [ADDRESS][METHOD]) in the bottom of the file.
+
 
     host all all 0.0.0.0/0 md5
 
