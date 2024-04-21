@@ -11,8 +11,8 @@ Create a cluster and add node(s) in the cluster on DO,
 ![Setup and Download Config File](img/k0.png)
 
 
-1.Install Nginx ingress controller in the cluster, with app installer
-2.Then loadbalancer will be provisioned automatically
+1. Install Nginx ingress controller in the cluster, with app installer
+2. Then loadbalancer will be provisioned automatically
 
 ![Nginx Ingress Controller](img/k1.png)
 
